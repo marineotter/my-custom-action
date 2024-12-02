@@ -1,0 +1,17 @@
+name: 'Hello World Action'
+description: 'A simple action that prints Hello World'
+inputs:
+  myInput:
+    description: 'An example input'
+    required: false
+    default: 'World'
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3"
+    - name: Run script
+      run: |
+        echo "Hello ${{ inputs.myInput }}"
